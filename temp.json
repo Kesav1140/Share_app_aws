@@ -1,0 +1,36 @@
+{'info': {'symbol': 'MANAPPURAM', 'companyName': 'Manappuram Finance Limited', 'industry': 'FINANCE', 'activeSeries': ['EQ'
+        ], 'debtSeries': [], 'isFNOSec': True, 'isCASec': False, 'isSLBSec': True, 'isDebtSec': False, 'isSuspended': False, 'tempSuspendedSeries': ['N1', 'N2', 'N3', 'N4', 'N5', 'N6', 'N7', 'N8', 'N9', 'NA', 'NB', 'ND', 'NE', 'NF', 'NG', 'NH', 'NI', 'NJ', 'NK', 'NL', 'NM'
+        ], 'isETFSec': False, 'isDelisted': False, 'isin': 'INE522D07784', 'isMunicipalBond': False, 'isTop10': False, 'identifier': 'MANAPPURAMEQN'
+    }, 'metadata': {'series': 'EQ', 'symbol': 'MANAPPURAM', 
+'isin': 'INE522D01027', 'status': 'Listed', 'listingDate': '01-Dec-2014', 'industry': 'Non Banking Financial Company (NBFC)', 'lastUpdateTime': '12-Apr-2024 16: 00: 00', 'pdSectorPe': 8.1, 'pdSymbolPe': 8.1, 'pdSectorInd': 'NIFTY FINANCIAL SERVICES                          '
+    }, 'securityInfo': {'boardStatus': 'Main', 'tradingStatus': 'Active', 'tradingSegment': 'Normal Market', 'sessionNo': '-', 'slb': 'Yes', 'classOfShare': 'Equity', 'derivatives': 'Yes', 'surveillance': {'surv': None, 'desc': None
+        }, 'faceValue': 2, 'issuedSize': 846434729
+    }, 'sddDetails': {'SDDAuditor': '-', 'SDDStatus': '-'
+    }, 'priceInfo': {'lastPrice': 195.65, 'change': 0.45000000000001705, 'pChange': 0.23053278688525466, 'previousClose': 195.2, 'open': 195.3, 'close': 195.9, 'vwap': 198.12, 'lowerCP': '175.70', 'upperCP': '214.70', 'pPriceBand': 'No Band', 'basePrice': 195.2, 'intraDayHighLow': {'min': 194, 'max': 201.9, 'value': 195.65
+        }, 'weekHighLow': {'min': 102, 'minDate': '05-May-2023', 'max': 202.45, 'maxDate': '04-Apr-2024', 'value': 195.65
+        }, 'iNavValue': None, 'checkINAV': False
+    }, 'industryInfo': {'macro': 'Financial Services', 'sector': 'Financial Services', 'industry': 'Finance', 'basicIndustry': 'Non Banking Financial Company (NBFC)'
+    }, 'preOpenMarket': {'preopen': [
+            {'price': 180, 'buyQty': 0, 'sellQty': 230
+            },
+            {'price': 184, 'buyQty': 0, 'sellQty': 70
+            },
+            {'price': 190, 'buyQty': 0, 'sellQty': 100
+            },
+            {'price': 191, 'buyQty': 0, 'sellQty': 300
+            },
+            {'price': 195.3, 'buyQty': 0, 'sellQty': 0, 'iep': True
+            },
+            {'price': 200, 'buyQty': 200, 'sellQty': 0
+            },
+            {'price': 201.05, 'buyQty': 4, 'sellQty': 0
+            },
+            {'price': 204, 
+'buyQty': 35, 'sellQty': 0
+            },
+            {'price': 214.7, 'buyQty': 4589, 'sellQty': 0
+            }
+        ], 'ato': {'buy': 5840, 'sell': 1257
+        }, 'IEP': 195.3, 'totalTradedVolume': 19382, 'finalPrice': 195.3, 'finalQuantity': 19891, 'lastUpdateTime': '12-Apr-2024 09: 07: 58', 'totalBuyQuantity': 50752, 'totalSellQuantity': 292180, 'atoBuyQty': 5840, 'atoSellQty': 1257, 'Change': 0.10000000000002274, 'perChange': 0.051229508196732956, 'prevClose': 195.2
+    }
+}
