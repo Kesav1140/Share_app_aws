@@ -57,8 +57,8 @@ class Protfolio:
         print(total_data)
     
 
-if __name__ == __main__:
-    obj1 = Protfolio()
-    obj1.lambda_handler()
+# if __name__ == __main__:
+    # obj1 = Protfolio()
+    # obj1.lambda_handler()
 
 
