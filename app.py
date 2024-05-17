@@ -10,7 +10,7 @@ class Protfolio:
         self.get_details = 'https://www.nseindia.com/api/quote-equity?symbol={}'
         
 
-    def get_info(self):
+    def lambda_handler(self):
 
         current_data = []
         
@@ -55,13 +55,10 @@ class Protfolio:
                 print()
 
         print(total_data)
+    
 
-
-
-
-                
-
-obj1 = Protfolio()
-obj1.get_info()
+# if __name__ == __main__:
+    # obj1 = Protfolio()
+    # obj1.lambda_handler()
 
 
