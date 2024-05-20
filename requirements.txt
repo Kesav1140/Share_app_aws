@@ -1,4 +1,3 @@
 requests
 pandas
-csv
 python == 3.12
