@@ -2,8 +2,7 @@ name: Deploy to AWS Lambda
 on:
   push:
     branches:
-      - main  # Trigger deployment on push to main branch everytime
-
+      - main  # Trigger deployment on push to main branch
 
 jobs:
   deploy:
@@ -12,22 +11,30 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup Python 3.12.3
+      - name: Setup Python 3.12
         uses: actions/setup-python@v2
         with:
-          python-version: "3.12.3"
+          python-version: "3.12"
 
       - name: Install dependencies
         run: pip install --upgrade pip -r requirements.txt
 
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get install -y unzip
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install
+
       - name: Build deployment package
         run: zip -r kesavan_share_app.zip .
 
+      - name: Configure AWS credentials
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws configure set region us-east-1  # Change to your desired region
+
       - name: Deploy to AWS Lambda
-        uses: aws-actions/aws-lambda-deploy@v1.1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1  # Change to your desired region
-          function-name: share-app-v1-lambda  # Change to your Lambda function name
-          zip-file: kesavan_share_app.zip
+        run: |
+          aws lambda update-function-code --function-name share-app-v1-lambda --zip-file fileb://kesavan_share_app.zip
