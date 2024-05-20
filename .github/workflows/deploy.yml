@@ -2,7 +2,8 @@ name: Deploy to AWS Lambda
 on:
   push:
     branches:
-      - main  # Trigger deployment on push to main branch
+      - main  # Trigger deployment on push to main branch everytime
+
 
 jobs:
   deploy:
