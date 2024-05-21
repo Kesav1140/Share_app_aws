@@ -11,34 +11,27 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup Python 3.12
-        uses: actions/setup-python@v2
+      - name: Setup docker buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Log in to ECR
+        id: exr-login
+        uses: aws-actions/amazon-ecr-login@v1
         with:
-          python-version: "3.12"
+          region: ${{ secrets.AWS_REGION }}
 
-      - name: Install dependencies
-        run: pip install --upgrade pip -r requirements.txt
-
-      - name: Install AWS CLI
+      - name: Build Docker image
         run: |
-          sudo apt-get install -y unzip
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip awscliv2.zip
-          sudo ./aws/install --update
+          docker build -t share_app_aws .
+          docker tag share_app_aws:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY_NAME }}:latest
 
-      - name: Build deployment package
-        run: zip -r kesavan_share_app.zip .
-
-      - name: Configure AWS credentials
+      - name: Push image to ECR
         run: |
-          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws configure set region ap-south-1  # Change to your desired region
-
-      - name: Upload to S3
-        run: |
-          aws s3 cp kesavan_share_app.zip s3://k7-lambda-bucket1/kesavan_share_app.zip
+          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY_NAME }}:latest
 
       - name: Deploy to AWS Lambda
-        run: |
-          aws lambda update-function-code --function-name share-app-v1-lambda --s3-bucket k7-lambda-bucket1 --s3-key kesavan_share_app.zip
+        uses: aws-actions/aws-lambda-deploy@v1
+        with:
+          function-name: my-lambda-function
+          region: ${{ secrets.AWS_REGION }}
+          image-uri: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY_NAME }}:latest
