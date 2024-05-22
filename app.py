@@ -1,6 +1,5 @@
 # libraries used
 import requests
-import pandas as pd
 import csv
 
 class Protfolio:
