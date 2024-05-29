@@ -1,6 +1,7 @@
 # libraries used
 import requests
 import csv
+import datetime 
 
 class Protfolio:
     def __init__(self):
@@ -56,9 +57,8 @@ class Protfolio:
         print(total_data)
     
 
-# if __name__ == __main__:
-    # obj1 = Protfolio()
-    # obj1.lambda_handler()
-    #test
+if __name__ == "__main__":
+    obj1 = Protfolio()
+    obj1.lambda_handler()
 
 
