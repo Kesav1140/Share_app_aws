@@ -1,5 +1,5 @@
 # Use official python image as base
-FROM python:3.12-slim-bookworm
+FROM public.ecr.aws/lambda/python:3.12
 
 # Setup wok directory
 WORKDIR /Share_app_aws
