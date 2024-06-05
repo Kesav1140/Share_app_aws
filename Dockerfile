@@ -14,4 +14,4 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Command to run at container start
-CMD ["python", "app.py" ]
+CMD ["lambda_handler", "app.py" ]
