@@ -13,16 +13,12 @@ class Protfolio:
                   "Chrome/87.0.4280.88 Safari/537.36 "}
         self.get_details = 'https://www.nseindia.com/api/quote-equity?symbol={}'
 
-        # Get the environment variables
-        AWS_ACCESS_KEY_ID = os.environ['AKIA3FLD3BC6HEUWGWME']
-        AWS_SECRET_ACCESS_KEY = os.environ['AhQMdR8L5ntEfuoQyoXnuDC4x']
-
     def save_to_s3(self, data):
         # Role arn for temp credentials
         role_arn = 'arn:aws:iam::767397923004:role/kesavan_aws_role1'
 
         # Create an STS client
-        sts_client = boto3.client('sts', aws_access_key_id=self.AWS_ACCESS_KEY_ID, aws_secret_access_key=self.AWS_SECRET_ACCESS_KEY)
+        sts_client = boto3.client('sts', aws_access_key_id='AKIA3FLD3BC6HEUWGWME', aws_secret_access_key='AhQMdR8L5ntEfuoQyoXnuDC4x')
 
         # Assumerole to get temperory creds
         assumerole_response = sts_client.assume_role(
